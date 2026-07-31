@@ -1,0 +1,160 @@
+/* ===========================
+   NOTICE DETAIL PAGE
+=========================== */
+
+.notice-detail-page{
+    margin-top:25px;
+}
+
+/* ===========================
+   MAIN CARD
+=========================== */
+
+.detail-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.detail-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.notice-icon{
+    width:70px;
+    height:70px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:30px;
+    flex-shrink:0;
+}
+
+.detail-header h2{
+    margin:0;
+    font-size:28px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.detail-header small{
+    display:block;
+    margin-top:8px;
+    color:#64748b;
+    font-size:14px;
+}
+
+.detail-header small i{
+    color:#2563eb;
+    margin-right:6px;
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+.detail-body{
+    margin-top:25px;
+}
+
+.detail-body p{
+    color:#475569;
+    font-size:17px;
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* ===========================
+   ATTACHMENT
+=========================== */
+
+.attachment-box{
+    margin-top:30px;
+}
+
+.download-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#2563eb;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+}
+
+.download-btn:hover{
+    background:#1d4ed8;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   BACK BUTTON
+=========================== */
+
+.back-box{
+    margin-top:30px;
+}
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#f1f5f9;
+    color:#1e293b;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#2563eb;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .detail-card{
+        padding:20px;
+    }
+
+    .detail-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .detail-header h2{
+        font-size:22px;
+    }
+
+    .detail-body p{
+        font-size:15px;
+    }
+
+    .download-btn,
+    .back-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+}

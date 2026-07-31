@@ -1,0 +1,61 @@
+{% load static %}
+<aside class="sidebar">
+
+    <div class="logo-area">
+        <img src="{% load static %}{% static 'images/logo/college_logo.png' %}" class="logo">
+        <h5>RMC ERP</h5>
+    </div>
+
+    <ul>
+
+        <li class="{% if request.path == '/student/dashboard/' %}active{% endif %}">
+    <a href="/student/dashboard/">
+        <i class="bi bi-grid"></i> Dashboard
+    </a>
+</li>
+
+<li class="{% if request.path == '/student/profile/' %}active{% endif %}">
+    <a href="/student/profile/">
+        <i class="bi bi-person-circle"></i> Profile
+    </a>
+</li>
+
+<li class="{% if request.path == '/student/attendance/' %}active{% endif %}">
+    <a href="/student/attendance/">
+        <i class="bi bi-calendar-check"></i> Attendance
+    </a>
+</li>
+
+<li class="{% if request.path == '/student/marks/' %}active{% endif %}">
+    <a href="/student/marks/">
+        <i class="bi bi-journal-check"></i> Marks
+    </a>
+</li>
+
+<li class="{% if request.path == '/student/subjects/' %}active{% endif %}">
+    <a href="/student/subjects/">
+        <i class="bi bi-book"></i> Subjects
+    </a>
+</li>
+
+<li class="{% if request.path == '/student/assignments/' %}active{% endif %}">
+    <a href="/student/assignments/">
+        <i class="bi bi-file-earmark-text"></i> Assignments
+    </a>
+</li>
+
+        <li>
+            <a href="/notice-board/">
+                <i class="bi bi-megaphone"></i> Notice Board
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout/">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </a>
+        </li>
+
+    </ul>
+
+</aside>

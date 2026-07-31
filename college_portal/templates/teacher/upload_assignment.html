@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Assignment</title>
+    <style>
+        body{
+            margin:0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            min-height:100vh;
+        }
+
+        .container{
+            width:900px;
+            margin:40px auto;
+            background:#fff;
+            border-radius:12px;
+            padding:25px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+            margin-bottom:20px;
+        }
+
+        .upload-box{
+            background:#f9fafb;
+            padding:20px;
+            border-radius:10px;
+            border:2px dashed #4f46e5;
+            margin-bottom:30px;
+        }
+
+        .upload-box label{
+            font-weight:600;
+            display:block;
+            margin-top:10px;
+            color:#333;
+        }
+
+        input[type="text"],
+        input[type="file"]{
+            width:100%;
+            padding:10px;
+            margin-top:6px;
+            border-radius:6px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            margin-top:15px;
+            padding:12px 25px;
+            background:#4f46e5;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#4338ca;
+        }
+
+        .assignment-list{
+            margin-top:20px;
+        }
+
+        .assignment-card{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:#eef2ff;
+            padding:12px 18px;
+            border-radius:8px;
+            margin-bottom:12px;
+        }
+
+        .assignment-card h4{
+            margin:0;
+            color:#1e3a8a;
+        }
+
+        .assignment-card a{
+            text-decoration:none;
+            background:#16a34a;
+            color:#fff;
+            padding:8px 14px;
+            border-radius:6px;
+            font-size:14px;
+        }
+
+        .assignment-card a:hover{
+            background:#15803d;
+        }
+
+        .back-btn{
+            display:inline-block;
+            margin-top:20px;
+            text-decoration:none;
+            color:#4f46e5;
+            font-weight:600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>📤 Upload Assignment</h2>
+
+    <!-- Upload Form -->
+    <div class="upload-box">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label>Assignment Title</label>
+            <input type="text" name="title" placeholder="Enter assignment title" required>
+
+            <!-- ✅ SUBJECT FIELD ADDED -->
+            <label>Subject</label>
+            <input type="text" name="subject" placeholder="Enter subject name" required>
+
+            <label>Select PDF File</label>
+            <input type="file" name="file" accept=".pdf" required>
+
+            <button type="submit">Upload Assignment</button>
+        </form>
+    </div>
+
+    <!-- Uploaded Assignments -->
+    <h3>📚 Uploaded Assignments</h3>
+
+    <div class="assignment-list">
+        {% for a in assignments %}
+        <div class="assignment-card">
+            <h4>{{ a.title }} ({{ a.subject }})</h4>
+            <div>
+    <a href="{{ a.pdf.url }}" download style="
+        background:#16a34a;
+        color:white;
+        padding:6px 10px;
+        border-radius:6px;
+        text-decoration:none;
+        margin-right:5px;">
+        ⬇ Download
+    </a>
+
+    <a href="/teacher/assignments/delete/{{ a.id }}/"
+       onclick="return confirm('Are you sure you want to delete this assignment?');"
+       style="
+        background:#dc2626;
+        color:white;
+        padding:6px 10px;
+        border-radius:6px;
+        text-decoration:none;">
+        🗑 Delete
+    </a>
+</div>
+
+            
+        </div>
+        {% empty %}
+        <p>No assignments uploaded yet.</p>
+        {% endfor %}
+    </div>
+
+    <a href="/teacher/dashboard/" class="back-btn">← Back to Dashboard</a>
+    
+
+</div>
+
+</body>
+</html>

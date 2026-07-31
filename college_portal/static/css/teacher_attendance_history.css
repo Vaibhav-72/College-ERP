@@ -1,0 +1,572 @@
+/* =========================================
+   ATTENDANCE HISTORY PAGE
+========================================= */
+
+.history-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.history-summary-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 17px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    border: 1px solid #ede9fe;
+    box-shadow: 0 8px 24px rgba(76, 29, 149, 0.07);
+}
+
+.history-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+.history-icon.purple {
+    background: linear-gradient(135deg, #5b21b6, #7c3aed);
+}
+
+.history-icon.green {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.history-icon.red {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.history-summary-card h2 {
+    margin: 0;
+    font-size: 27px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.history-summary-card p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #64748b;
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+.history-filter {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    border: 1px solid #ede9fe;
+    box-shadow: 0 8px 24px rgba(76, 29, 149, 0.06);
+}
+
+.filter-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-title > i {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ede9fe;
+    color: #6d28d9;
+
+    font-size: 17px;
+}
+
+.filter-title h5 {
+    margin: 0;
+    color: #4c1d95;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.filter-title p {
+    margin: 2px 0 0;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   FILTER FORM
+========================================= */
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-input-box {
+    height: 40px;
+    min-width: 210px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    border: 1px solid #ddd6fe;
+    border-radius: 10px;
+
+    background: #faf9ff;
+}
+
+.date-input-box i {
+    color: #7c3aed;
+}
+
+.date-input-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #334155;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FILTER BUTTONS
+========================================= */
+
+.filter-form .view-btn {
+    height: 40px;
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #5b21b6, #7c3aed);
+    color: #ffffff;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.filter-form .view-btn:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(91, 33, 182, 0.22);
+}
+
+.show-all-btn {
+    height: 40px;
+    padding: 0 16px;
+
+    border-radius: 10px;
+    border: 1px solid #ddd6fe;
+
+    background: #f5f3ff;
+    color: #5b21b6;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.show-all-btn:hover {
+    background: #ede9fe;
+    color: #4c1d95;
+}
+
+
+/* =========================================
+   HISTORY CARD
+========================================= */
+
+.history-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+
+    border: 1px solid #ede9fe;
+    box-shadow: 0 10px 28px rgba(76, 29, 149, 0.07);
+}
+
+
+/* =========================================
+   HISTORY HEADER
+========================================= */
+
+.history-card-header {
+    min-height: 70px;
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ede9fe;
+}
+
+.history-card-header h4 {
+    margin: 0;
+    color: #4c1d95;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.history-card-header h4 i {
+    margin-right: 7px;
+}
+
+.history-card-header p {
+    margin: 3px 0 0;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.selected-date {
+    background: #f5f3ff;
+    color: #5b21b6;
+
+    padding: 8px 13px;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.history-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.history-table thead {
+    background: #f5f3ff;
+}
+
+.history-table th {
+    padding: 13px 15px;
+    text-align: left;
+
+    color: #4c1d95;
+    font-size: 12px;
+    font-weight: 700;
+
+    border-bottom: 1px solid #ddd6fe;
+}
+
+.history-table td {
+    padding: 12px 15px;
+
+    color: #334155;
+    font-size: 12px;
+
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.history-table tbody tr {
+    transition: 0.2s;
+}
+
+.history-table tbody tr:hover {
+    background: #faf9ff;
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* TABLE COLUMN WIDTH */
+
+.history-table th:nth-child(1) {
+    width: 5%;
+}
+
+.history-table th:nth-child(2) {
+    width: 15%;
+}
+
+.history-table th:nth-child(3) {
+    width: 10%;
+}
+
+.history-table th:nth-child(4) {
+    width: 23%;
+}
+
+.history-table th:nth-child(5) {
+    width: 12%;
+}
+
+.history-table th:nth-child(6) {
+    width: 18%;
+}
+
+.history-table th:nth-child(7) {
+    width: 17%;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.record-date {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    white-space: nowrap;
+}
+
+.record-date i {
+    color: #7c3aed;
+}
+
+
+/* =========================================
+   STUDENT
+========================================= */
+
+.history-student {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 600;
+}
+
+.history-student img,
+.history-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+
+    border: 2px solid #7c3aed;
+    flex-shrink: 0;
+}
+
+.history-student img {
+    object-fit: cover;
+}
+
+.history-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f5f3ff;
+    color: #5b21b6;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.roll-no {
+    font-weight: 600;
+}
+
+
+/* =========================================
+   SUBJECT
+========================================= */
+
+.subject-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status-present,
+.status-absent {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 11px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-present {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-absent {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* =========================================
+   NO RECORDS
+========================================= */
+
+.no-records {
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.no-records > i {
+    font-size: 38px;
+    color: #a78bfa;
+}
+
+.no-records h5 {
+    margin: 10px 0 3px;
+    color: #4c1d95;
+    font-size: 16px;
+}
+
+.no-records p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   TEACHER AVATAR
+========================================= */
+
+.teacher-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #7c3aed;
+
+    background: #f5f3ff;
+    color: #4c1d95;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .history-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .history-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-form {
+        width: 100%;
+    }
+
+    .date-input-box {
+        flex: 1;
+    }
+
+    .history-table {
+        min-width: 900px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .filter-form {
+        flex-direction: column;
+    }
+
+    .date-input-box,
+    .filter-form .view-btn,
+    .show-all-btn {
+        width: 100%;
+    }
+
+    .history-card-header {
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+}

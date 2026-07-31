@@ -1,0 +1,107 @@
+:root{
+    --primary:#0B2C6A;
+    --secondary:#D4AF37;
+    --light:#F4F6F9;
+    --dark:#1E293B;
+    --white:#ffffff;
+    --border:#E5E7EB;
+}
+
+body{
+    background:var(--light);
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* Navbar */
+
+.top-navbar{
+    height:70px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:fixed;
+    top:0;
+    left:260px;
+    right:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:var(--primary);
+    position:fixed;
+    left:0;
+    top:0;
+    overflow-y:auto;
+}
+
+.sidebar .logo{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.sidebar ul{
+    padding:20px 0;
+    margin:0;
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin:6px 15px;
+}
+
+.sidebar ul li a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    color:#fff;
+    text-decoration:none;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.sidebar ul li a:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.sidebar ul li a i{
+    font-size:18px;
+}
+
+/* Content */
+
+.main-content{
+    margin-left:260px;
+    margin-top:70px;
+    padding:30px;
+}
+
+/* Cards */
+
+.erp-card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+    border:none;
+}
+
+/* Footer */
+
+footer{
+    margin-left:260px;
+}

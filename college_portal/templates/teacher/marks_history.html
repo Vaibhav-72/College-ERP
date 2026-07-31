@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-dark">
+
+<nav class="navbar navbar-dark bg-black px-4">
+    <span class="navbar-brand">📊 Marks History – {{ teacher.subject }}</span>
+    <a href="/teacher/dashboard/" class="btn btn-outline-light btn-sm">⬅ Back</a>
+</nav>
+
+<div class="container mt-5">
+    <div class="card p-4">
+        <table class="table table-bordered text-center align-middle">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Subject</th>
+            <th>Internal</th>
+            <th>External</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in marks %}
+        <tr>
+            <td>{{ m.student.name }}</td>
+            <td>{{ m.subject }}</td>
+            <td>{{ m.internal_marks }}</td>
+            <td>{{ m.external_marks }}</td>
+            <td class="fw-bold">{{ m.total_marks }}</td>
+            <td>
+                <a href="/teacher/marks/delete/{{ m.id }}/" class="btn btn-danger btn-sm">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gradebook | Teacher ERP</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/teacher.css' %}">
+    <link rel="stylesheet" href="{% static 'css/teacher_add_marks.css' %}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    {% include "teacher/sidebar.html" %}
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+
+            <div class="top-left">
+                <h3>Gradebook</h3>
+                <p>Manage student academic marks</p>
+            </div>
+
+            <div class="teacher-box">
+                <div class="teacher-avatar">
+                    {{ teacher.name|slice:":1" }}
+                </div>
+
+                <div>
+                    <h6>{{ teacher.name }}</h6>
+                    <span>{{ teacher.subject }}</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- GRADEBOOK -->
+        <div class="gradebook">
+
+            <!-- HEADER -->
+            <div class="gradebook-header">
+
+                <div>
+                    <div class="gradebook-label">
+                        <i class="bi bi-journal-check"></i>
+                        MARKS REGISTER
+                    </div>
+
+                    <h2>{{ teacher.subject }} — Gradebook</h2>
+
+                    <p>
+                        Enter and update student examination marks
+                    </p>
+                </div>
+
+                <div class="gradebook-total">
+                    <span>Maximum Marks</span>
+                    <strong>50</strong>
+                </div>
+
+            </div>
+
+
+            <!-- MARKS INFORMATION -->
+            <div class="marks-info-bar">
+
+                <div>
+                    <span>Internal Assessment</span>
+                    <strong>20 Marks</strong>
+                </div>
+
+                <div class="divider"></div>
+
+                <div>
+                    <span>External Examination</span>
+                    <strong>30 Marks</strong>
+                </div>
+
+                <div class="divider"></div>
+
+                <div>
+                    <span>Total</span>
+                    <strong>50 Marks</strong>
+                </div>
+
+                <div class="student-count">
+                    <i class="bi bi-people"></i>
+                    {{ students|length }} Students
+                </div>
+
+            </div>
+
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="grade-table-wrapper">
+
+                    <table class="grade-table">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Roll No</th>
+                                <th>Student Name</th>
+                                <th>Course</th>
+
+                                <th class="marks-heading">
+                                    Internal
+                                    <span>Maximum 20</span>
+                                </th>
+
+                                <th class="marks-heading">
+                                    External
+                                    <span>Maximum 30</span>
+                                </th>
+
+                                <th class="marks-heading">
+                                    Total
+                                    <span>Maximum 50</span>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {% for student in students %}
+
+                            <tr>
+
+                                <td class="serial">
+                                    {{ forloop.counter|stringformat:"02d" }}
+                                </td>
+
+                                <td>
+                                    <span class="roll">
+                                        {{ student.roll_no }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="student-name">
+                                        {{ student.name }}
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <span class="course">
+                                        {{ student.course }}
+                                    </span>
+                                </td>
+
+
+                                <!-- INTERNAL -->
+                                <td>
+
+                                    <div class="mark-field">
+
+                                        <input
+                                            type="number"
+                                            name="internal_{{ student.id }}"
+                                            class="grade-input internal-input"
+                                            value="{{ student.saved_internal }}"
+                                            min="0"
+                                            max="20"
+                                            placeholder="0"
+                                        >
+
+                                        <span>/20</span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- EXTERNAL -->
+                                <td>
+
+                                    <div class="mark-field">
+
+                                        <input
+                                            type="number"
+                                            name="external_{{ student.id }}"
+                                            class="grade-input external-input"
+                                            value="{{ student.saved_external }}"
+                                            min="0"
+                                            max="30"
+                                            placeholder="0"
+                                        >
+
+                                        <span>/30</span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- TOTAL -->
+                                <td>
+
+                                    <div class="grade-total">
+                                        <strong class="total-value">0</strong>
+                                        <span>/50</span>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        {% empty %}
+
+                            <tr>
+                                <td colspan="7">
+
+                                    <div class="empty-gradebook">
+                                        <i class="bi bi-journal-x"></i>
+                                        <h3>No Students Found</h3>
+                                        <p>No students are available for marks entry.</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                {% if students %}
+
+                <!-- BOTTOM BAR -->
+                <div class="gradebook-footer">
+
+                    <div class="grade-note">
+                        <i class="bi bi-info-circle"></i>
+
+                        Internal marks cannot exceed
+                        <strong>20</strong> and external marks cannot exceed
+                        <strong>30</strong>.
+                    </div>
+
+                    <button type="submit" class="save-gradebook">
+                        <i class="bi bi-check2-circle"></i>
+                        Save Gradebook
+                    </button>
+
+                </div>
+
+                {% endif %}
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const rows = document.querySelectorAll(".grade-table tbody tr");
+
+    rows.forEach(function (row) {
+
+        const internal = row.querySelector(".internal-input");
+        const external = row.querySelector(".external-input");
+        const total = row.querySelector(".total-value");
+
+        if (!internal || !external || !total) {
+            return;
+        }
+
+        function calculateTotal() {
+
+            let internalMarks = parseInt(internal.value) || 0;
+            let externalMarks = parseInt(external.value) || 0;
+
+            /* Maximum limit */
+            if (internalMarks > 20) {
+                internalMarks = 20;
+                internal.value = 20;
+            }
+
+            if (internalMarks < 0) {
+                internalMarks = 0;
+                internal.value = 0;
+            }
+
+            if (externalMarks > 30) {
+                externalMarks = 30;
+                external.value = 30;
+            }
+
+            if (externalMarks < 0) {
+                externalMarks = 0;
+                external.value = 0;
+            }
+
+            total.textContent = internalMarks + externalMarks;
+        }
+
+        internal.addEventListener("input", calculateTotal);
+        external.addEventListener("input", calculateTotal);
+
+        calculateTotal();
+    });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F5F3FF;
+}
+
+/* ===========================
+   DASHBOARD LAYOUT
+=========================== */
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+    width:280px;
+    background:linear-gradient(180deg,#4C1D95,#6D28D9);
+    color:#fff;
+    position:fixed;
+    left:0;
+    top:0;
+    height:100vh;
+    padding:25px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:8px 0 30px rgba(76,29,149,.18);
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.logo-icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:rgba(255,255,255,.15);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+}
+
+.logo-text h3{
+    font-size:22px;
+    font-weight:700;
+    margin:0;
+}
+
+.logo-text span{
+    font-size:13px;
+    opacity:.8;
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.menu{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.menu li{
+    margin-bottom:8px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:#ffffff;
+    padding:14px 18px;
+    border-radius:12px;
+    transition:0.25s ease;
+    font-size:15px;
+    font-weight:500;
+}
+
+/* Hover */
+
+.menu a:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateX(4px);
+}
+
+/* CURRENT OPEN PAGE */
+
+.menu a.active{
+    background:linear-gradient(
+        135deg,
+        #e5e7eb,
+        #cbd5e1
+    );
+
+    color:#4c1d95;
+
+    font-weight:700;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+
+    transform:none;
+}
+
+.menu a.active i{
+    color:#4c1d95;
+}
+
+/* ===========================
+   LOGOUT
+=========================== */
+
+.logout a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:#fff;
+    padding:14px 18px;
+    border-radius:14px;
+    transition:.3s;
+    background:rgba(255,255,255,.12);
+}
+
+.logout a:hover{
+    background:#EF4444;
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+
+.main-content{
+    margin-left:280px;
+    width:calc(100% - 280px);
+    padding:30px;
+}
+
+/* ===========================
+   TOPBAR
+=========================== */
+
+.topbar{
+    background:#fff;
+    border-radius:18px;
+    padding:18px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    margin-bottom:30px;
+}
+
+.topbar h3{
+    margin:0;
+    font-size:24px;
+    color:#4C1D95;
+    font-weight:700;
+}
+
+.topbar p{
+    margin:4px 0 0;
+    color:#777;
+    font-size:14px;
+}
+
+.teacher-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.teacher-box img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #7C3AED;
+}
+
+.teacher-box h6{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+}
+
+.teacher-box span{
+    font-size:13px;
+    color:#777;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .sidebar{
+        width:90px;
+    }
+
+    .logo-text,
+    .menu span,
+    .logout span{
+        display:none;
+    }
+
+    .main-content{
+        margin-left:90px;
+        width:calc(100% - 90px);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main-content{
+        width:100%;
+        margin-left:0;
+        padding:20px;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+}

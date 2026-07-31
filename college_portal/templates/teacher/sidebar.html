@@ -1,0 +1,103 @@
+{% load static %}
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            <i class="bi bi-mortarboard-fill"></i>
+        </div>
+
+        <div class="logo-text">
+            <h3>Teacher ERP</h3>
+            <span>Faculty Panel</span>
+        </div>
+
+    </div>
+
+    <ul class="menu">
+
+    <li>
+        <a href="{% url 'teacher_dashboard' %}"
+           class="{% if request.resolver_match.url_name == 'teacher_dashboard' %}active{% endif %}">
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'teacher_profile' %}"
+           class="{% if request.resolver_match.url_name == 'teacher_profile' %}active{% endif %}">
+            <i class="bi bi-person-circle"></i>
+            <span>My Profile</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'view_students' %}"
+           class="{% if request.resolver_match.url_name == 'view_students' %}active{% endif %}">
+            <i class="bi bi-people-fill"></i>
+            <span>Students</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'teacher_attendance' %}"
+           class="{% if request.resolver_match.url_name == 'teacher_attendance' %}active{% endif %}">
+            <i class="bi bi-calendar-check-fill"></i>
+            <span>Attendance</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'attendance_history' %}"
+           class="{% if request.resolver_match.url_name == 'attendance_history' %}active{% endif %}">
+            <i class="bi bi-clock-history"></i>
+            <span>Attendance History</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'teacher_marks' %}"
+           class="{% if request.resolver_match.url_name == 'teacher_marks' %}active{% endif %}">
+            <i class="bi bi-pencil-square"></i>
+            <span>Add Marks</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'marks_history' %}"
+           class="{% if request.resolver_match.url_name == 'marks_history' %}active{% endif %}">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>Marks History</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'teacher_subjects' %}"
+           class="{% if request.resolver_match.url_name == 'teacher_subjects' %}active{% endif %}">
+            <i class="bi bi-journal-bookmark-fill"></i>
+            <span>Subjects</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'teacher_assignments' %}"
+           class="{% if request.resolver_match.url_name == 'teacher_assignments' %}active{% endif %}">
+            <i class="bi bi-file-earmark-arrow-up-fill"></i>
+            <span>Assignments</span>
+        </a>
+    </li>
+
+</ul>
+
+    <div class="logout">
+
+        <a href="{% url 'teacher_logout' %}">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>

@@ -1,0 +1,1154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+University of Mumbai Grade Card
+</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#ececec;
+
+padding:30px;
+
+}
+
+.grade-card{
+
+width:1000px;
+
+margin:auto;
+
+background:#fff;
+
+padding:30px;
+
+border:2px solid #000;
+
+position:relative;
+
+}
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
+
+border-bottom:2px solid #000;
+
+padding-bottom:15px;
+
+}
+
+.mu-logo{
+
+width:90px;
+
+height:105px;
+
+object-fit:contain;
+
+}
+
+.student-photo{
+
+width:100px;
+
+height:120px;
+
+border:1px solid #000;
+
+object-fit:cover;
+
+}
+
+.center{
+
+flex:1;
+
+text-align:center;
+
+}
+
+.center h1{
+
+font-size:34px;
+
+font-family:"Times New Roman";
+
+margin-bottom:5px;
+
+}
+
+.center h2{
+
+font-size:19px;
+
+margin-top:4px;
+
+}
+
+.center h3{
+
+margin-top:6px;
+
+font-size:16px;
+
+}
+
+.center p{
+
+font-size:14px;
+
+margin-top:3px;
+
+}
+
+.info-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+font-size:14px;
+
+}
+
+.info-table td{
+
+padding:8px 10px;
+
+border:1px solid #000;
+
+}
+
+.info-table b{
+
+font-weight:700;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="grade-card">
+
+<!-- =======================
+HEADER
+======================= -->
+
+<div class="header">
+
+<div>
+
+<img src="/media/logos/mu_logo.png"
+
+class="mu-logo">
+
+</div>
+
+<div class="center">
+
+<h1>
+
+मुंबई विश्वविद्यालय
+
+</h1>
+
+<h1>
+
+University of Mumbai
+
+</h1>
+
+<p>
+
+Re-accredited with A++ Grade
+
+</p>
+
+<p>
+
+(CGPA 3.65)
+
+by NAAC (3rd Cycle 2021)
+
+</p>
+
+<h2>
+
+GRADE CARD
+
+</h2>
+
+<p>
+
+NCrF Level : 6.0
+
+</p>
+
+<h3>
+
+Statement of Grade for
+
+</h3>
+
+<p>
+
+Bachelor of Science
+
+(Information Technology)
+
+</p>
+
+<p>
+
+Semester Examination
+
+</p>
+
+</div>
+
+<div>
+
+<img src="{{ student.photo.url }}"
+
+class="student-photo">
+
+</div>
+
+</div>
+
+<!-- =======================
+STUDENT DETAILS
+======================= -->
+
+<table class="info-table">
+
+<tr>
+
+<td width="50%">
+
+<b>Name :</b>
+
+{{ student.name }}
+
+</td>
+
+<td>
+
+<b>Mother Name :</b>
+
+{{ student.mother_name }}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<b>ERN :</b>
+
+{{ student.roll_no }}
+
+</td>
+
+<td>
+
+<b>Seat Number :</b>
+
+{{ student.roll_no }}
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<b>College :</b>
+
+Reena Mehta College Of Arts Science Commerce & Management Studies
+
+</td>
+
+<td>
+
+<b>Batch :</b>
+
+2026
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<b>ABC ID :</b>
+
+{{ student.roll_no }}
+
+</td>
+
+<td>
+
+<b>Course :</b>
+
+B.Sc IT
+
+</td>
+
+</tr>
+
+</table>
+
+<!-- ==========================
+MARKS TABLE
+========================== -->
+
+<br>
+
+<table class="marks-table">
+
+<tr>
+
+<th rowspan="2">Course Code</th>
+
+<th rowspan="2">Vertical</th>
+
+<th rowspan="2">Course Name</th>
+
+<th rowspan="2">AM</th>
+
+<th colspan="3">CIA</th>
+
+<th colspan="3">SEE</th>
+
+<th colspan="3">TOTAL</th>
+
+<th rowspan="2">CR</th>
+
+<th rowspan="2">GR</th>
+
+<th rowspan="2">GP</th>
+
+<th rowspan="2">CP</th>
+
+<th rowspan="2">Remark</th>
+
+</tr>
+
+<tr>
+
+<th>Max</th>
+<th>Min</th>
+<th>Obt</th>
+
+<th>Max</th>
+<th>Min</th>
+<th>Obt</th>
+
+<th>Max</th>
+<th>Min</th>
+<th>Obt</th>
+
+</tr>
+
+{% for m in marks %}
+
+<tr>
+
+<td>
+101111{{ forloop.counter }}
+</td>
+
+<td>
+MAJOR
+</td>
+
+<td style="text-align:left">
+
+{{ m.subject }}
+
+</td>
+
+<td>
+
+TH
+
+</td>
+
+<td>20</td>
+
+<td>8</td>
+
+<td>
+
+{{ m.internal_marks }}
+
+</td>
+
+<td>30</td>
+
+<td>12</td>
+
+<td>
+
+{{ m.external_marks }}
+
+</td>
+
+<td>50</td>
+
+<td>20</td>
+
+<td>
+
+<b>
+
+{{ m.total_marks }}
+
+</b>
+
+</td>
+
+<td>
+
+2.00
+
+</td>
+
+<td>
+
+{% if m.total_marks >=45 %}
+O
+
+{% elif m.total_marks >=40 %}
+A+
+
+{% elif m.total_marks >=35 %}
+A
+
+{% elif m.total_marks >=30 %}
+B+
+
+{% elif m.total_marks >=20 %}
+C
+
+{% else %}
+F
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if m.total_marks >=45 %}
+10
+
+{% elif m.total_marks >=40 %}
+9
+
+{% elif m.total_marks >=35 %}
+8
+
+{% elif m.total_marks >=30 %}
+7
+
+{% elif m.total_marks >=20 %}
+5
+
+{% else %}
+0
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if m.total_marks >=20 %}
+10
+{% else %}
+0
+{% endif %}
+
+</td>
+
+<td>
+
+{% if m.total_marks >=20 %}
+
+P
+
+{% else %}
+
+F
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<style>
+
+.marks-table{
+
+width:100%;
+
+margin-top:25px;
+
+border-collapse:collapse;
+
+font-size:12px;
+
+}
+
+.marks-table th{
+
+background:#efefef;
+
+border:1px solid #000;
+
+padding:6px;
+
+text-align:center;
+
+font-weight:700;
+
+}
+
+.marks-table td{
+
+border:1px solid #000;
+
+padding:6px;
+
+text-align:center;
+
+}
+
+.marks-table tr:hover{
+
+background:#f8f8f8;
+
+}
+
+</style>
+
+<!-- ==========================
+SEMESTER SUMMARY
+========================== -->
+
+<br>
+
+<table class="summary-table">
+
+<tr>
+
+<td width="25%">
+
+<b>Semester Credits :</b>
+
+{{ marks|length|add:0 }}0.00
+
+</td>
+
+<td width="25%">
+
+<b>EGP :</b>
+
+{{ total_marks }}
+
+</td>
+
+<td width="25%">
+
+<b>Percentage :</b>
+
+{{ percentage }} %
+
+</td>
+
+<td width="25%">
+
+<b>SGPA :</b>
+
+{{ percentage|floatformat:0 }}
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<table class="result-table">
+
+<tr>
+
+<td width="25%">
+
+<b>Total Credits :</b>
+
+{{ marks|length|add:0 }}
+
+</td>
+
+<td width="25%">
+
+<b>Status :</b>
+
+{% if result == "PASS" %}
+
+<span style="color:green;font-weight:bold;">
+PASS
+</span>
+
+{% else %}
+
+<span style="color:red;font-weight:bold;">
+FAIL
+</span>
+
+{% endif %}
+
+</td>
+
+<td width="25%">
+
+<b>CGPA :</b>
+
+{{ percentage|floatformat:0 }}
+
+</td>
+
+<td width="25%">
+
+<b>Grade :</b>
+
+{% if percentage >= 90 %}
+O
+
+{% elif percentage >= 80 %}
+A+
+
+{% elif percentage >= 70 %}
+A
+
+{% elif percentage >= 60 %}
+B+
+
+{% elif percentage >= 50 %}
+B
+
+{% elif percentage >= 40 %}
+C
+
+{% else %}
+F
+
+{% endif %}
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<table class="grand-total">
+
+<tr>
+
+<td width="70%">
+
+<b>
+
+Grand Total :
+
+</b>
+
+{{ total_marks }}
+
+/
+
+{{ marks|length }}50
+
+</td>
+
+<td width="30%">
+
+<b>
+
+Result :
+
+</b>
+
+{{ result }}
+
+</td>
+
+</tr>
+
+</table>
+
+<style>
+
+.summary-table,
+.result-table,
+.grand-total{
+
+width:100%;
+
+border-collapse:collapse;
+
+font-size:14px;
+
+}
+
+.summary-table td,
+.result-table td,
+.grand-total td{
+
+border:1px solid #000;
+
+padding:10px;
+
+}
+
+.summary-table{
+
+background:#f6f6f6;
+
+}
+
+.result-table{
+
+margin-top:8px;
+
+}
+
+.grand-total{
+
+margin-top:8px;
+
+background:#efefef;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+</style>
+
+
+<!-- ==========================
+RESULT DECLARATION
+========================== -->
+
+<br><br>
+
+<table class="declaration-table">
+
+<tr>
+
+<td width="70%">
+
+<b>Date of Declaration :</b>
+
+15 June 2026
+
+</td>
+
+<td width="30%" align="center">
+
+<b>Result :</b>
+
+{% if result == "PASS" %}
+
+<span style="color:green;">PASS</span>
+
+{% else %}
+
+<span style="color:red;">FAIL</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<div class="signature-section">
+
+<div class="left-sign">
+
+_________________________<br>
+
+Prepared By
+
+</div>
+
+<div class="center-sign">
+
+_________________________<br>
+
+Checked By
+
+</div>
+
+<div class="right-sign">
+
+_________________________<br>
+
+Controller of Examination
+
+</div>
+
+</div>
+
+<br><br>
+
+<div class="note-box">
+
+<b>Note :</b>
+
+<ul>
+
+<li>This Grade Card is generated electronically.</li>
+
+<li>No signature is required if verified through the ERP Portal.</li>
+
+<li>Any discrepancy should be reported within 15 days.</li>
+
+<li>This document is valid only with the University Seal.</li>
+
+</ul>
+
+</div>
+
+<br>
+
+<div class="footer">
+
+<div>
+
+University of Mumbai
+
+</div>
+
+<div>
+
+www.mu.ac.in
+
+</div>
+
+</div>
+
+<style>
+
+.declaration-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+font-size:14px;
+
+}
+
+.declaration-table td{
+
+border:1px solid #000;
+
+padding:10px;
+
+}
+
+.signature-section{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+text-align:center;
+
+font-size:14px;
+
+}
+
+.left-sign,
+.center-sign,
+.right-sign{
+
+width:30%;
+
+}
+
+.note-box{
+
+border:1px solid #000;
+
+padding:12px;
+
+font-size:13px;
+
+line-height:24px;
+
+background:#fafafa;
+
+}
+
+.footer{
+
+margin-top:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+font-weight:600;
+
+font-size:13px;
+
+border-top:2px solid #000;
+
+padding-top:10px;
+
+}
+
+</style>
+
+<!-- ==========================
+WATERMARK
+========================== -->
+
+<div class="watermark">
+
+UNIVERSITY OF MUMBAI
+
+</div>
+
+<!-- ==========================
+DOCUMENT VERIFICATION
+========================== -->
+
+<br>
+
+<table class="verify-table">
+
+<tr>
+
+<td width="50%">
+
+<b>Document No :</b>
+
+MU/{{ student.roll_no }}/2026
+
+</td>
+
+<td>
+
+<b>Verification ID :</b>
+
+VER{{ student.roll_no }}2026
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<div class="qr-section">
+
+<div class="qr-box">
+
+QR CODE
+
+</div>
+
+<div class="verify-text">
+
+Scan this QR Code to verify this Grade Card from the University ERP Portal.
+
+</div>
+
+</div>
+
+<style>
+
+.watermark{
+
+position:absolute;
+
+top:48%;
+
+left:50%;
+
+transform:translate(-50%,-50%) rotate(-35deg);
+
+font-size:70px;
+
+font-weight:bold;
+
+color:rgba(0,0,0,.05);
+
+white-space:nowrap;
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+.verify-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+font-size:13px;
+
+}
+
+.verify-table td{
+
+border:1px solid #000;
+
+padding:8px;
+
+}
+
+.qr-section{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+margin-top:15px;
+
+}
+
+.qr-box{
+
+width:110px;
+
+height:110px;
+
+border:2px solid #000;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-weight:bold;
+
+}
+
+.verify-text{
+
+width:82%;
+
+font-size:13px;
+
+line-height:22px;
+
+}
+
+</style>
+
+<style>
+
+@media print{
+
+body{
+
+background:white;
+
+padding:0;
+
+}
+
+.grade-card{
+
+width:100%;
+
+border:none;
+
+margin:0;
+
+padding:15px;
+
+box-shadow:none;
+
+}
+
+button{
+
+display:none;
+
+}
+
+}
+
+</style>
+
+</div>
+
+</body>
+
+</html>

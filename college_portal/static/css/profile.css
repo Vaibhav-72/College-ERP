@@ -1,0 +1,678 @@
+/*====================================================
+            PROFILE PAGE CSS
+====================================================*/
+
+
+.profile-page{
+    padding:20px 25px;
+    background:#f4f7fc;
+}
+
+/*================ HERO =================*/
+
+.profile-hero{
+    min-height: 130px;   /* 220px ya 180px ho to hatao */
+    padding: 20px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    
+    background:linear-gradient(135deg,#0f172a,#1d4ed8);
+    border-radius:20px;
+    color:#fff;
+    margin-bottom:5px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.hero-left{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.profile-image img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid rgba(255,255,255,.35);
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.hero-details h1{
+    font-size:34px;
+    margin-bottom:6px;
+    font-weight:700;
+}
+
+.course{
+    
+    font-size:17px;
+    opacity:.9;
+    margin-bottom:10px;
+}
+
+
+
+.pvc-photo{
+    width:160px;
+    height:160px;
+    margin:20px auto;
+    border-radius:15px;
+    overflow:hidden;
+    border:4px solid #2d5be3;
+    background:#fff;
+    position:relative;
+}
+
+.pvc-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:relative;
+    display:block;
+}
+
+.hero-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.hero-badges .badge{
+    background:rgba(255,255,255,.15);
+    padding:10px 18px;
+    border-radius:50px;
+    /* backdrop-filter:blur(15px); */
+    color:#fff;
+    font-size:14px;
+}
+
+.hero-badges .active{
+    background:#16a34a;
+}
+
+.edit-profile-btn{
+    background:#fff;
+    color:#1d4ed8;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.edit-profile-btn:hover{
+    transform:translateY(-4px);
+}
+
+/*==================== SECTION TITLE ====================*/
+
+.section-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:10px 0 15px;
+}
+
+.section-header h2{
+    font-size:28px;
+    color:#0f172a;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.section-header i{
+    color:#2563eb;
+}
+
+
+/*================ PVC CARD =================*/
+
+.pvc-card-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:10px auto 30px;
+}
+.pvc-card{
+    width:360px;
+    min-height: 460px;
+    background:#ffffff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+    border:1px solid #dbe5ff;
+}
+
+.pvc-header{
+    background:linear-gradient(135deg,#0d47a1,#1976d2);
+    color:#fff;
+    text-align:center;
+    padding:12px;
+}
+
+.pvc-header .college-logo{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+    margin-bottom:8px;
+}
+
+.pvc-header h3{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+}
+
+.pvc-header p{
+    margin-top:4px;
+    font-size:16px;
+}
+
+.pvc-photo{
+    width:100px;
+    height:100px;
+    margin:18px auto;
+    border-radius:15px;
+    overflow:hidden;
+    border:4px solid #1976d2;
+    background:#fff;
+}
+
+.pvc-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.student-name{
+    text-align:center;
+    font-size:20px;
+    font-weight:700;
+    color:#1f2937;
+}
+
+.student-course{
+    text-align:center;
+    font-size:15px;
+    color:#6b7280;
+    margin-bottom:15px;
+}
+
+.pvc-details{
+    padding:0 18px;
+    
+}
+
+.detail-row{
+    
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #ececec;
+}
+
+.detail-row span{
+    font-size:14px;
+    color:#6b7280;
+    
+}
+
+.detail-row strong{
+    font-size:13px;
+    color:#111827;
+}
+
+.pvc-qr{
+    text-align:center;
+    padding:18px;
+}
+
+.pvc-qr img{
+    width:85px;
+    height:85px;
+}
+
+.pvc-qr p{
+    margin-top:8px;
+    font-size:12px;
+}
+
+.pvc-footer{
+    padding:15px;
+    text-align:center;
+    font-size:16px;
+    font-weight:500;
+    background:linear-gradient(135deg,#0d47a1,#1976d2);
+    color:#fff;
+}
+
+.print-btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#1976d2;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.print-btn:hover{
+    background:#0d47a1;
+}
+/*==================== PROFILE INFORMATION CARD ====================*/
+
+.profile-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:35px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.info-box{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px 22px;
+    transition:.3s;
+}
+
+.info-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(37,99,235,.12);
+    border-color:#2563eb;
+}
+
+.info-box label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:#64748b;
+    margin-bottom:8px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.info-box span{
+    font-size:17px;
+    color:#0f172a;
+    font-weight:600;
+    word-break:break-word;
+}
+
+.full-width{
+    grid-column:1 / -1;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.status.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.verified{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.verified i{
+    margin-right:6px;
+}
+
+/*==================== BUTTON EFFECT ====================*/
+
+.edit-profile-btn,
+.print-btn{
+    transition:all .3s ease;
+}
+
+.edit-profile-btn:hover,
+.print-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+}
+
+.student-id-card,
+.profile-card{
+    transition:.35s;
+}
+
+.student-id-card:hover,
+.profile-card:hover{
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+}
+
+/*==================== RESPONSIVE ====================*/
+
+@media (max-width:1200px){
+
+    .id-card-wrapper{
+        flex-direction:column;
+    }
+
+    .id-card-actions{
+        width:100%;
+    }
+
+    .print-btn{
+        width:100%;
+    }
+
+}
+
+@media (max-width:992px){
+
+    .profile-hero{
+        flex-direction:column;
+        text-align:center;
+        gap:25px;
+    }
+
+    .hero-left{
+        flex-direction:column;
+    }
+
+    .hero-badges{
+        justify-content:center;
+    }
+
+  
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .profile-page{
+        padding:15px;
+    }
+
+    .profile-hero{
+        padding:25px;
+    }
+
+    .profile-image img{
+        width:120px;
+        height:120px;
+    }
+
+    .hero-details h1{
+        font-size:28px;
+    }
+
+    .course{
+        font-size:15px;
+    }
+
+    .hero-badges .badge{
+        width:100%;
+        justify-content:center;
+    }
+
+    .section-header h2{
+        font-size:22px;
+    }
+
+   
+
+
+}
+
+@media (max-width:480px){
+
+    .hero-details h1{
+        font-size:24px;
+    }
+
+    .college-details h3{
+        font-size:18px;
+    }
+
+    .college-details p{
+        font-size:12px;
+    }
+
+    .profile-card{
+        padding:18px;
+    }
+
+    .info-box{
+        padding:15px;
+    }
+
+}
+
+/*==================== PRINT ID CARD ====================*/
+
+@media print{
+
+    body{
+        background:#fff;
+    }
+
+    .profile-hero,
+    .section-header,
+    .profile-card,
+    .id-card-actions,
+    .sidebar,
+    .navbar,
+    .header,
+    .footer{
+        display:none !important;
+    }
+
+    
+
+ 
+
+    .profile-page{
+        padding:0;
+        margin:0;
+    }
+
+}
+/*==================== SCROLLBAR ====================*/
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf2f7;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#1d4ed8;
+}
+
+/*==================== ANIMATIONS ====================*/
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.profile-hero{
+    animation:fadeUp .8s ease;
+}
+
+
+.profile-card{
+    animation:fadeUp 1s ease;
+}
+
+.info-box{
+    animation:fadeUp 1.2s ease;
+}
+
+/*==================== GLASS EFFECT ====================*/
+
+/* .hero-badges .badge{
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+} */
+
+/* .profile-card{
+    backdrop-filter:blur(12px);
+} */
+
+/*==================== HOVER EFFECT ====================*/
+
+
+.info-box:hover label{
+    color:#2563eb;
+}
+
+.info-box:hover span{
+    color:#1d4ed8;
+}
+
+.hero-details h1{
+    letter-spacing:.5px;
+}
+
+.section-header{
+    position:relative;
+    padding-bottom:10px;
+}
+
+.section-header::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:80px;
+    height:4px;
+    background:#2563eb;
+    border-radius:50px;
+}
+
+
+/* ================= PRINT ID CARD ================= */
+
+@media print {
+
+    body{
+        background:#fff !important;
+    }
+
+    .sidebar,
+    .topbar,
+    .profile-hero,
+    .section-header,
+    .print-btn,
+    .pvc-footer,
+    .personal-info,
+    .academic-info,
+    .account-info,
+    .pvc-foote,
+    .emergency-contact{
+        display:none !important;
+    }
+
+    @media print {
+
+    .pvc-header{
+        background:#1565c0 !important;
+        color:#fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .pvc-footer{
+        background:#1565c0 !important;
+        color:#fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-btn{
+        display:none !important;
+    }
+
+}
+
+    .main-content{
+        margin:0 !important;
+        padding:0 !important;
+        width:100% !important;
+    }
+
+    .profile-page{
+        padding:0 !important;
+        background:#fff !important;
+    }
+
+    .pvc-card-wrapper{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        margin:0 !important;
+    }
+
+    .pvc-card{
+        width:320px !important;
+        box-shadow:none !important;
+        border:1px solid #000 !important;
+        page-break-inside:avoid;
+    }
+
+    .pvc-header{
+        background:#1565c0 !important;
+        color:#fff !important;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+
+}  

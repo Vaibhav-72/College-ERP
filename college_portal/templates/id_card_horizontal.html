@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Horizontal ID Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .card {
+            width: 600px;
+            margin: 30px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: white;
+        }
+
+        /* ===== TOP HEADER ===== */
+        .top-section {
+            background: #2f5597;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .top-section img {
+            width: 70px;
+            margin-bottom: 10px;
+        }
+
+        .top-section h2 {
+            margin: 5px 0;
+            font-size: 20px;
+        }
+
+        .top-section p {
+            margin: 2px 0;
+            font-size: 13px;
+        }
+
+        /* ===== BODY SECTION ===== */
+        .content {
+            display: flex;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .photo {
+            flex: 1;
+            text-align: center;
+        }
+
+        .photo img {
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border: 3px solid #2f5597;
+        }
+
+        .details {
+            flex: 2;
+            font-size: 15px;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        .bottom-section {
+            background: #2f5597;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .print-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .print-btn button {
+            padding: 8px 15px;
+            background: #2f5597;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- ===== TOP HEADER ===== -->
+    <div class="top-section">
+        <img src="/media/logos/logo.png">
+        <h2>NIRANJANA MAJITHIA<br>COLLEGE OF COMMERCE</h2>
+        <p>Affiliated to University of Mumbai</p>
+        <p>NAAC Accredited 'B' Grade, ISO 9001:2015</p>
+        <p>Kandivali (W), Mumbai-400067</p>
+    </div>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="content">
+
+        <div class="photo">
+            {% if student.photo %}
+                <img src="{{ student.photo.url }}">
+            {% endif %}
+        </div>
+
+        <div class="details">
+            <p><b>Name:</b> {{ student.name }}</p>
+            <p><b>Course:</b> {{ student.course }}</p>
+            <p><b>Roll No:</b> {{ student.roll_no }}</p>
+            <p><b>Student ID:</b> {{ student.student_id }}</p>
+            <p><b>DOB:</b> {{ student.dob }}</p>
+            <p><b>Mobile:</b> {{ student.mobile }}</p>
+        </div>
+
+    </div>
+
+    <div class="bottom-section">
+        Principal Signature
+    </div>
+
+</div>
+
+<div class="print-btn">
+    <button onclick="window.print()">Print ID Card</button>
+</div>
+
+</body>
+</html>

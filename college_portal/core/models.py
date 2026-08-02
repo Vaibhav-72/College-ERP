@@ -42,12 +42,25 @@ class Teacher(models.Model):
     email = models.EmailField()
     mobile = models.CharField(max_length=15)
     subject = models.CharField(max_length=100)
+
+    # Optional Fields
+    qualification = models.CharField(max_length=100, blank=True)
+    experience = models.CharField(max_length=50, blank=True)
+    gender = models.CharField(max_length=10, blank=True)
+    dob = models.DateField(null=True, blank=True)
+    joining_date = models.DateField(null=True, blank=True)
+    address = models.TextField(blank=True)
+
     password = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='teacher_photos/', null=True, blank=True)
+
+    photo = models.ImageField(
+        upload_to='teacher_photos/',
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return f"{self.name} - {self.subject}"
-
 
 # =========================
 # ATTENDANCE MODEL
@@ -101,7 +114,48 @@ class Assignment(models.Model):
     def __str__(self):
         return self.title
 
+class StudyMaterial(models.Model):
+    
+    MATERIAL_TYPES = [
+        ('Notes', 'Notes'),
+        ('Assignment', 'Assignment'),
+        ('Important Questions', 'Important Questions'),
+        ('Practical', 'Practical'),
+        ('PPT', 'PPT'),
+        ('Syllabus', 'Syllabus'),
+        ('Other', 'Other'),
+    ]
 
+    teacher = models.ForeignKey(
+        Teacher,
+        on_delete=models.CASCADE
+    )
+
+    title = models.CharField(max_length=200)
+
+    material_type = models.CharField(
+        max_length=30,
+        choices=MATERIAL_TYPES
+    )
+
+    course = models.CharField(max_length=100)
+
+    subject = models.CharField(max_length=100)
+
+    description = models.TextField(
+        blank=True
+    )
+
+    file = models.FileField(
+        upload_to='study_materials/'
+    )
+
+    upload_date = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return self.title
 # =========================
 # NOTICE BOARD MODEL
 # =========================

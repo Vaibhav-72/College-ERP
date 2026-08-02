@@ -65,27 +65,13 @@
         </a>
     </li>
 
-    <li>
-        <a href="{% url 'marks_history' %}"
-           class="{% if request.resolver_match.url_name == 'marks_history' %}active{% endif %}">
-            <i class="bi bi-bar-chart-fill"></i>
-            <span>Marks History</span>
-        </a>
-    </li>
+
 
     <li>
-        <a href="{% url 'teacher_subjects' %}"
-           class="{% if request.resolver_match.url_name == 'teacher_subjects' %}active{% endif %}">
-            <i class="bi bi-journal-bookmark-fill"></i>
-            <span>Subjects</span>
-        </a>
-    </li>
-
-    <li>
-        <a href="{% url 'teacher_assignments' %}"
+        <a href="{% url 'teacher_study_materials' %}"
            class="{% if request.resolver_match.url_name == 'teacher_assignments' %}active{% endif %}">
-            <i class="bi bi-file-earmark-arrow-up-fill"></i>
-            <span>Assignments</span>
+            <i class="bi bi-journal-bookmark-fill"></i>
+            <span>Study Materials</span>
         </a>
     </li>
 

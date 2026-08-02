@@ -6,7 +6,7 @@ from reportlab.platypus import (
     Spacer,
     Image,
 )
-
+from .models import StudyMaterial
 from reportlab.lib import colors
 from reportlab.lib.units import cm
 from reportlab.lib.styles import getSampleStyleSheet
@@ -100,8 +100,21 @@ def teacher_dashboard(request):
 #teacher profile  
 
 def teacher_profile(request):
-    return render(request, "teacher/profile.html")
+    
+    teacher_id = request.session.get("teacher_id")
 
+    if not teacher_id:
+        return redirect("/")
+
+    teacher = Teacher.objects.get(id=teacher_id)
+
+    return render(
+        request,
+        "teacher/profile.html",
+        {
+            "teacher": teacher
+        }
+    )
 
 # =========================
 # MARK ATTENDANCE (COURSE + DATE WISE)
@@ -208,7 +221,7 @@ def add_marks(request):
     teacher_id = request.session.get('teacher_id')
 
     if not teacher_id:
-        return redirect('/')
+        return redirect('/teacher/marks/')
 
     teacher = Teacher.objects.get(id=teacher_id)
 
@@ -278,7 +291,7 @@ def add_marks(request):
 # =========================
 # MARKS HISTORY
 # =========================
-def marks_history(request):
+
     teacher_id = request.session.get('teacher_id')
     if not teacher_id:
         return redirect('/')
@@ -296,6 +309,59 @@ def delete_marks(request, id):
     Marks.objects.filter(id=id).delete()
     return redirect('/teacher/marks/history/')
 
+# study materials
+
+def teacher_study_materials(request):
+    
+    teacher_id = request.session.get("teacher_id")
+
+    if not teacher_id:
+        return redirect("/")
+
+    teacher = Teacher.objects.get(id=teacher_id)
+
+    materials = StudyMaterial.objects.filter(
+        teacher=teacher
+    ).order_by("-upload_date")
+
+    if request.method == "POST":
+
+        title = request.POST.get("title")
+        material_type = request.POST.get("material_type")
+        course = "BSc IT"
+        description = request.POST.get("description")
+        file = request.FILES.get("file")
+
+        if file:
+
+            StudyMaterial.objects.create(
+
+                teacher=teacher,
+
+                title=title,
+
+                material_type=material_type,
+
+                course=course,
+
+                subject=teacher.subject,
+
+                description=description,
+
+                file=file
+
+            )
+
+            return redirect("teacher_study_materials")
+
+    return render(
+        request,
+        "teacher/study_materials.html",
+        {
+            "teacher": teacher,
+            "materials": materials
+        }
+    )
 
 # =========================
 # VIEW STUDENTS
@@ -933,21 +999,7 @@ def notice_detail(request, id):
         }
     )
     
-    
-    # ==========================
-# TEACHER SUBJECTS
-# ==========================
-def teacher_subjects(request):
-    teacher_id = request.session.get("teacher_id")
 
-    if not teacher_id:
-        return redirect("/")
-
-    teacher = Teacher.objects.get(id=teacher_id)
-
-    return render(request, "teacher/subjects.html", {
-        "teacher": teacher
-    })
 
 
 # ==========================

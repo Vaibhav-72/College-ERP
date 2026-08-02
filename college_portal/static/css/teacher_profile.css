@@ -1,0 +1,419 @@
+/* ==========================================
+   PROFILE PAGE
+========================================== */
+
+.profile-id-wrapper{
+    display:flex;
+    justify-content:center;
+    margin:30px 0;
+}
+
+
+/* ==========================================
+   ID CARD
+========================================== */
+
+.teacher-id-card{
+
+    width:415px;
+    height: 560;
+    max-width:100%;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(76,29,149,.12);
+
+}
+
+
+/* HEADER */
+
+.id-header{
+
+    background:linear-gradient(135deg,#4C1D95,#7C3AED);
+
+    padding:18px;
+
+    text-align:center;
+
+    color:#fff;
+
+}
+
+.college-logo{
+
+    width:55px;
+    height:55px;
+
+    object-fit:contain;
+
+    margin-bottom:12px;
+
+}
+
+.id-header h4{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.id-header span{
+
+    font-size:14px;
+
+    opacity:.9;
+
+}
+
+
+/* BODY */
+
+.id-body{
+
+    padding:20px 25px;
+
+    text-align:center;
+
+}
+
+.teacher-photo{
+
+    width:125px;
+    height:125px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #7C3AED;
+
+    margin-bottom:18px;
+
+}
+
+.id-body h3{
+
+    margin:0;
+
+    color:#4C1D95;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.designation{
+
+    color:#777;
+
+    margin-top:8px;
+
+    margin-bottom:18px;
+
+    font-size:14px;
+
+}
+
+.id-details{
+
+    margin-top:20px;
+
+}
+
+.id-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.id-row:last-child{
+
+    border:none;
+
+}
+
+.id-row span{
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+.id-row strong{
+
+    color:#222;
+
+    font-size:16px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.id-footer{
+
+    background:#4C1D95;
+
+    padding:16px;
+
+    text-align:center;
+
+}
+
+.signature-box{
+
+    width:220px;
+
+    margin:auto;
+
+}
+
+.line{
+
+    width:100%;
+
+    border-top:2px solid #fff;
+
+    margin-bottom:8px;
+
+}
+
+.signature-box small{
+
+    color:#fff;
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================
+   INFORMATION CARD
+========================================== */
+
+.info-card{
+
+    margin-top:35px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+.card-header i{
+
+    font-size:26px;
+
+    color:#7C3AED;
+
+}
+
+.card-header h4{
+
+    margin:0;
+
+    font-size:24px;
+
+    color:#4C1D95;
+
+    font-weight:700;
+
+}
+
+
+/* GRID */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.info-item{
+
+    background:#fafafa;
+
+    border:1px solid #ececec;
+
+    border-radius:14px;
+
+    padding:18px;
+
+}
+
+.info-item label{
+
+    display:block;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:6px;
+
+}
+
+.info-item p{
+
+    margin:0;
+
+    color:#222;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.full-width{
+
+    grid-column:1 / -1;
+
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.profile-actions{
+
+    margin:35px 0;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.edit-btn{
+
+    background:linear-gradient(135deg,#4C1D95,#7C3AED);
+
+    color:#fff;
+
+    padding:14px 30px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.edit-btn:hover{
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+.password-btn{
+
+    border:2px solid #7C3AED;
+
+    color:#7C3AED;
+
+    padding:14px 30px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.password-btn:hover{
+
+    background:#7C3AED;
+
+    color:#fff;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .teacher-id-card{
+
+        width:100%;
+
+    }
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-actions{
+
+        flex-direction:column;
+
+    }
+
+    .edit-btn,
+    .password-btn{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}

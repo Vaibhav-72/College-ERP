@@ -30,15 +30,14 @@ urlpatterns = [
 
     path("teacher/attendance/history/",views.attendance_history,name="attendance_history"),
     path("teacher/marks/", views.add_marks, name="teacher_marks"),
-    path("teacher/marks/history/",views.marks_history,name="marks_history"),
-    path("teacher/subjects/",views.teacher_subjects,name="teacher_subjects"),
     path("teacher/assignments/", views.teacher_upload_assignment, name="teacher_assignments"),
     path("teacher/notice-board/",views.teacher_notice_board,name="teacher_notice_board"),
     path("teacher/notice-board/<int:id>/",views.teacher_notice_detail,name="teacher_notice_detail"),
     path("teacher/settings/",views.teacher_settings,name="teacher_settings"),
 
     path("teacher/logout/",views.teacher_logout,name="teacher_logout"),
-
+    path("teacher/study-materials/",views.teacher_study_materials,name="teacher_study_materials"
+),
 
     # ================= STUDENT =================
     path('student/dashboard/', views.student_dashboard),

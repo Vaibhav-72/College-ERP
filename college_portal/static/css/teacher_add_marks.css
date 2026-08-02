@@ -40,7 +40,7 @@
     margin-bottom:7px;
 
     color:#6d28d9;
-    font-size:10px;
+    font-size:12px;
     font-weight:700;
 
     letter-spacing:1.4px;
@@ -51,7 +51,7 @@
 
     color:#1e293b;
 
-    font-size:21px;
+    font-size:30px;
     font-weight:700;
 }
 
@@ -60,7 +60,8 @@
 
     color:#94a3b8;
 
-    font-size:12px;
+    font-size:15px;
+    font-weight: 400;
 }
 
 
@@ -85,7 +86,7 @@
 
     color:#94a3b8;
 
-    font-size:10px;
+    font-size:15px;
     font-weight:500;
 }
 
@@ -129,7 +130,7 @@
 
     color:#94a3b8;
 
-    font-size:10px;
+    font-size:16px;
 }
 
 .marks-info-bar strong{
@@ -164,7 +165,7 @@
 
     color:#6d28d9;
 
-    font-size:11px;
+    font-size:15px;
     font-weight:600;
 }
 
@@ -194,11 +195,11 @@
 }
 
 .grade-table th{
-    padding:13px 15px;
+    padding:22px;
 
     color:#ffffff;
 
-    font-size:11px;
+    font-size:13px;
     font-weight:600;
 
     text-align:left;
@@ -221,7 +222,7 @@
 
     color:#ddd6fe;
 
-    font-size:8px;
+    font-size:12px;
     font-weight:400;
 }
 
@@ -229,12 +230,12 @@
 /* TABLE BODY */
 
 .grade-table td{
-    padding:13px 15px;
+    padding:22px;
 
     color:#334155;
 
-    font-size:12px;
-
+    font-size:14px;
+    font-weight: 500;
     vertical-align:middle;
 
     border-bottom:1px solid #edf0f5;
@@ -297,7 +298,7 @@
 .serial{
     color:#94a3b8 !important;
 
-    font-size:10px !important;
+    font-size:12px !important;
 
     font-weight:600;
 }
@@ -308,8 +309,8 @@
     min-width:34px;
 
     justify-content:center;
-
-    padding:5px 8px;
+    font-size: 16px;
+    padding:8px 14px;
 
     background:#f1f5f9;
 
@@ -328,7 +329,7 @@
 .student-name{
     color:#1e293b;
 
-    font-size:12px;
+    font-size:16px;
     font-weight:600;
 }
 
@@ -346,7 +347,7 @@
 
     color:#2563eb;
 
-    font-size:10px;
+    font-size:16px;
     font-weight:600;
 }
 
@@ -363,8 +364,8 @@
 }
 
 .grade-input{
-    width:62px;
-    height:36px;
+    width:90px;
+    height:50px;
 
     border:1px solid #cbd5e1;
     border-radius:6px;
@@ -377,8 +378,8 @@
 
     text-align:center;
 
-    font-size:13px;
-    font-weight:700;
+    font-size:15px;
+    font-weight:600;
 
     transition:.2s;
 }
@@ -396,7 +397,7 @@
 .mark-field span{
     color:#94a3b8;
 
-    font-size:9px;
+    font-size:14px;
     font-weight:600;
 }
 
@@ -424,14 +425,14 @@
 .grade-total strong{
     color:#5b21b6;
 
-    font-size:18px;
-    font-weight:800;
+    font-size:24px;
+    font-weight:700;
 }
 
 .grade-total span{
     color:#94a3b8;
 
-    font-size:10px;
+    font-size:14px;
 }
 
 
@@ -457,7 +458,7 @@
 .grade-note{
     color:#64748b;
 
-    font-size:10px;
+    font-size:12px;
 }
 
 .grade-note i{
@@ -477,7 +478,7 @@
     border:none;
     outline:none;
 
-    padding:10px 18px;
+    padding:15px 28px;
 
     border-radius:8px;
 
@@ -489,7 +490,7 @@
     align-items:center;
     gap:7px;
 
-    font-size:11px;
+    font-size:14px;
     font-weight:600;
 
     cursor:pointer;
@@ -535,7 +536,7 @@
 
     color:#94a3b8;
 
-    font-size:11px;
+    font-size:12px;
 }
 
 

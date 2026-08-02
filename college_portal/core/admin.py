@@ -4,7 +4,7 @@ from django.urls import reverse
 from django import forms
 from django.forms.widgets import SelectDateWidget
 from .models import Student, Teacher, Attendance, Marks, Assignment, Notice
-
+from .models import Teacher
 
 # =========================
 # STUDENT FORM (DOB Year Dropdown)
@@ -55,11 +55,49 @@ class StudentAdmin(admin.ModelAdmin):
 # =========================
 # TEACHER ADMIN
 # =========================
+
+
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ('teacher_id', 'name', 'subject', 'email', 'mobile')
-    search_fields = ('name', 'teacher_id', 'subject')
+    list_display = (
+        "teacher_id",
+        "name",
+        "subject",
+        "email",
+        "mobile",
+    )
 
+    search_fields = (
+        "teacher_id",
+        "name",
+        "subject",
+        "email",
+    )
+
+    fieldsets = (
+        ("Basic Information", {
+            "fields": (
+                "teacher_id",
+                "name",
+                "photo",
+                "email",
+                "mobile",
+                "subject",
+                "password",
+            )
+        }),
+
+        ("Additional Information", {
+            "fields": (
+                "qualification",
+                "experience",
+                "gender",
+                "dob",
+                "joining_date",
+                "address",
+            )
+        }),
+    )
 
 # =========================
 # ATTENDANCE FORM (Date Dropdown Fix)

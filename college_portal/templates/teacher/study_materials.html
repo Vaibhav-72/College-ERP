@@ -253,9 +253,10 @@
 
                     <td>
 
-                        <a href="#">
+                        <a href="{% url 'delete_study_material' material.id %}"
+                        onclick="return confirm('Delete this study material?')">
 
-                            <i class="bi bi-trash-fill text-danger"></i>
+                        <i class="bi bi-trash-fill text-danger"></i>
 
                         </a>
 

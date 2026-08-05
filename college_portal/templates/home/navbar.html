@@ -1,0 +1,136 @@
+{% load static %}
+
+<header>
+
+    <!-- TOP HEADER -->
+
+    <div class="top-header">
+
+        <div class="container">
+
+            <div class="top-left">
+
+                <i class="bi bi-envelope-fill"></i>
+
+                <span>info@reenamehtacollege.edu.in</span>
+
+                <span class="divider">|</span>
+
+                <i class="bi bi-telephone-fill"></i>
+
+                <span>+91 9876543210</span>
+
+            </div>
+
+            <div class="top-right">
+
+                <span>Affiliated to Mumbai University</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAIN NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+
+        <div class="container">
+
+            <!-- LOGO -->
+
+            <a class="navbar-brand d-flex align-items-center" href="/">
+
+                <img src="{% static 'images/logo/college_logo.png' %}" class="college-logo">
+
+                <div class="college-info">
+
+                    <h4>REENA MEHTA COLLEGE</h4>
+
+                    <small>Empowering Education Through Smart ERP</small>
+
+                </div>
+
+            </a>
+
+
+            <button class="navbar-toggler"
+
+                    type="button"
+
+                    data-bs-toggle="collapse"
+
+                    data-bs-target="#mainMenu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse"
+
+                 id="mainMenu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="/">Home</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">About</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">Courses</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">Facilities</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">Gallery</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">Notice</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">Contact</a>
+
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+
+                        <a href="{% url 'login' %}" class="btn btn-warning">
+    ERP Portal
+</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>

@@ -1,0 +1,233 @@
+/* ==========================================
+   SEARCH CARD
+========================================== */
+
+.search-card{
+
+    background:#fff;
+
+    border-radius:16px;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+
+}
+
+.search-card i{
+
+    font-size:22px;
+
+    color:#4C1D95;
+
+}
+
+.search-card input{
+
+    border:none;
+
+    outline:none;
+
+    width:100%;
+
+    font-size:15px;
+
+    background:transparent;
+
+}
+
+
+/* ==========================================
+   MATERIAL CARD
+========================================== */
+
+.material-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.card-title{
+
+    padding:22px 25px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.card-title h4{
+
+    margin:0;
+
+    color:#4C1D95;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.card-title i{
+
+    margin-right:8px;
+
+}
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table{
+
+    margin:0;
+
+}
+
+.table thead{
+
+    background:linear-gradient(135deg,#4C1D95,#7C3AED);
+
+    color:#fff;
+
+}
+
+.table thead th{
+
+    border:none;
+
+    padding:16px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.table tbody td{
+
+    padding:16px;
+
+    vertical-align:middle;
+
+    font-size:14px;
+
+}
+
+.table tbody tr{
+
+    transition:.25s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#f5f3ff;
+
+}
+
+
+/* ==========================================
+   TYPE BADGE
+========================================== */
+
+.type-badge{
+
+    display:inline-block;
+
+    background:#ede9fe;
+
+    color:#5B21B6;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-primary{
+
+    background:#4C1D95;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#3d1777;
+
+}
+
+.btn-success{
+
+    border:none;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .material-card{
+
+        overflow-x:auto;
+
+    }
+
+    .table{
+
+        min-width:850px;
+
+    }
+
+}
+
+.subject-badge{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}

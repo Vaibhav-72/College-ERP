@@ -132,7 +132,9 @@ class StudyMaterial(models.Model):
     )
 
     title = models.CharField(max_length=200)
-
+    
+    subject = models.CharField(max_length=100)
+      
     material_type = models.CharField(
         max_length=30,
         choices=MATERIAL_TYPES

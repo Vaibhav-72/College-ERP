@@ -1,0 +1,253 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* ==========================================
+   TOP HEADER
+========================================== */
+
+.top-header{
+
+    background:#0d2b7e;
+
+    color:#fff;
+
+    font-size:14px;
+
+}
+
+.top-header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    min-height:42px;
+
+}
+
+.top-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.divider{
+
+    opacity:.5;
+
+}
+
+.top-right{
+
+    font-weight:500;
+
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.custom-navbar{
+
+    background:#ffffff;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    padding:12px 0;
+
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.college-logo{
+
+    width:68px;
+
+    height:68px;
+
+    object-fit:contain;
+
+    margin-right:15px;
+
+}
+
+.college-info h4{
+
+    margin:0;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:25px;
+
+    font-weight:800;
+
+    color:#0d2b7e;
+
+}
+
+.college-info small{
+
+    color:#666;
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================
+   MENU
+========================================== */
+
+.navbar-nav{
+
+    gap:8px;
+
+}
+
+.nav-link{
+
+    color:#222 !important;
+
+    font-weight:600;
+
+    padding:10px 15px !important;
+
+    transition:.3s;
+
+    border-radius:8px;
+
+}
+
+.nav-link:hover{
+
+    color:#0d2b7e !important;
+
+    background:#eef3ff;
+
+}
+
+.nav-link.active{
+
+    color:#0d2b7e !important;
+
+}
+
+
+/* ==========================================
+   ERP BUTTON
+========================================== */
+
+.erp-btn{
+
+    background:#f4b400;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    display:inline-block;
+
+}
+
+.erp-btn:hover{
+
+    background:#db9b00;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(244,180,0,.30);
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:991px){
+
+    .top-header{
+
+        display:none;
+
+    }
+
+    .college-logo{
+
+        width:52px;
+
+        height:52px;
+
+    }
+
+    .college-info h4{
+
+        font-size:18px;
+
+    }
+
+    .college-info small{
+
+        display:none;
+
+    }
+
+    .navbar-nav{
+
+        margin-top:15px;
+
+        gap:0;
+
+    }
+
+    .erp-btn{
+
+        width:100%;
+
+        text-align:center;
+
+        margin-top:10px;
+
+    }
+
+}

@@ -3,7 +3,7 @@
 
     <div class="logo-area">
         <img src="{% load static %}{% static 'images/logo/college_logo.png' %}" class="logo">
-        <h5>RMC ERP</h5>
+        <h5>Student ERP</h5>
     </div>
 
     <ul>
@@ -39,9 +39,10 @@
 </li>
 
 <li class="{% if request.path == '/student/assignments/' %}active{% endif %}">
-    <a href="/student/assignments/">
-        <i class="bi bi-file-earmark-text"></i> Assignments
-    </a>
+    <a href="{% url 'student_study_materials' %}">
+    <i class="bi bi-journal-bookmark-fill"></i>
+    <span>Study Materials</span>
+</a>
 </li>
 
         <li>

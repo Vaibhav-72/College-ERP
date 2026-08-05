@@ -106,8 +106,8 @@
     <div class="col-lg-3">
         <div class="info-card">
             <i class="bi bi-file-earmark-text"></i>
-            <h6>Assignments</h6>
-            <h4>{{ assignment_count }}</h4>
+            <h6>Study Materials</h6>
+            <h4>{{ total_materials }}</h4>
         </div>
     </div>
 
@@ -230,7 +230,7 @@
 
     </div>
 
-    <!-- Latest Assignments -->
+    <!-- Latest material -->
 
     <div class="col-lg-6">
 
@@ -238,36 +238,36 @@
 
             <h5>
 
-                <i class="bi bi-file-earmark-text-fill"></i>
+    <i class="bi bi-journal-bookmark-fill"></i>
 
-                Latest Assignments
+    Latest Study Materials
 
-            </h5>
+</h5>
 
             <ul>
 
-                {% for assignment in latest_assignments %}
+               {% for material in latest_materials %}
 
                 <li>
 
                     <div>
 
-                        <strong>{{ assignment.title }}</strong><br>
+                        <strong>{{ material.title }}</strong>
 
-                        <small class="text-muted">
+<small class="text-muted">
 
-                            {{ assignment.subject }}
+    {{ material.material_type }}
 
-                        </small>
+</small>
 
                         
                     </div>
 
-                    <a href="{{ assignment.pdf.url }}"
-                       class="badge-custom"
-                       target="_blank">
+                    <a href="{{ material.file.url }}"
+                    class="badge-custom"
+                    target="_blank">
 
-                        View
+                    View
 
                     </a>
 
@@ -275,7 +275,7 @@
 
                 {% empty %}
 
-                <li>No assignments available.</li>
+                <li>No Study Materials Available.</li>
 
                 {% endfor %}
 
@@ -327,8 +327,8 @@
                 </div>
 
                 <div class="activity-content">
-                    <h6>Assignment Uploaded</h6>
-                    <small>Software Engineering Assignment 1 uploaded.</small>
+                    <h6>Study Material Uploaded</h6>
+                    <small>New Notes & Study Materials are available.</small>
                 </div>
 
                 <span class="activity-time">1 hour ago</span>

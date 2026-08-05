@@ -11,7 +11,9 @@ urlpatterns = [
          name='student_id_card'),
 
     # ================= AUTH =================
-    path('', views.login_view, name='login'),
+   path('', views.home, name='home'),
+    path('login/', views.login_view, name='login'),
+    path("erp/", views.erp_portal, name="erp_portal"),
     path('logout/', views.logout_view, name='logout'),
     path('admin/', admin.site.urls),
 
@@ -30,21 +32,20 @@ urlpatterns = [
 
     path("teacher/attendance/history/",views.attendance_history,name="attendance_history"),
     path("teacher/marks/", views.add_marks, name="teacher_marks"),
-    path("teacher/assignments/", views.teacher_upload_assignment, name="teacher_assignments"),
     path("teacher/notice-board/",views.teacher_notice_board,name="teacher_notice_board"),
     path("teacher/notice-board/<int:id>/",views.teacher_notice_detail,name="teacher_notice_detail"),
     path("teacher/settings/",views.teacher_settings,name="teacher_settings"),
 
     path("teacher/logout/",views.teacher_logout,name="teacher_logout"),
-    path("teacher/study-materials/",views.teacher_study_materials,name="teacher_study_materials"
-),
+    path("teacher/study-materials/",views.teacher_study_materials,name="teacher_study_materials"),
+    path("teacher/study-material/delete/<int:material_id>/",views.delete_study_material,name="delete_study_material",),
 
     # ================= STUDENT =================
     path('student/dashboard/', views.student_dashboard),
     path('student/attendance/', views.student_attendance),
     path('student/subjects/', views.student_subjects, name='student_subjects'),
     path('student/marks/', views.student_marks, name='student_marks'),
-    path('student/assignments/', views.student_assignments),
+    path("student/study-materials/",views.student_study_materials,name="student_study_materials",),
     path('student/mu-marksheet/', views.student_marksheet, name='mu_marksheet'),
     path('student/download-marksheet/', views.download_marksheet, name='download_marksheet'),
     path("student/profile/",views.student_profile,name="student_profile"),

@@ -23,7 +23,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from datetime import date
 from django.http import HttpResponse
-from .models import Student, Teacher, Attendance, Marks, Assignment, Notice
+from .models import Student, Teacher, Attendance, Marks, Notice
 
 from reportlab.platypus import SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
@@ -45,6 +45,7 @@ from reportlab.platypus import (
     TableStyle,
 )
 from .models import Teacher
+from django.shortcuts import render
 
 # =========================
 # LOGIN VIEW
@@ -326,6 +327,7 @@ def teacher_study_materials(request):
 
     if request.method == "POST":
 
+
         title = request.POST.get("title")
         material_type = request.POST.get("material_type")
         course = "BSc IT"
@@ -339,12 +341,12 @@ def teacher_study_materials(request):
                 teacher=teacher,
 
                 title=title,
+                
+                subject=teacher.subject,
 
                 material_type=material_type,
 
                 course=course,
-
-                subject=teacher.subject,
 
                 description=description,
 
@@ -362,6 +364,30 @@ def teacher_study_materials(request):
             "materials": materials
         }
     )
+
+# delet study material
+
+def delete_study_material(request, material_id):
+    
+    teacher_id = request.session.get("teacher_id")
+
+    if not teacher_id:
+        return redirect("/")
+
+    teacher = Teacher.objects.get(id=teacher_id)
+
+    material = StudyMaterial.objects.get(
+        id=material_id,
+        teacher=teacher
+    )
+
+    # File bhi delete ho jayegi
+    if material.file:
+        material.file.delete(save=False)
+
+    material.delete()
+
+    return redirect("teacher_study_materials")
 
 # =========================
 # VIEW STUDENTS
@@ -387,7 +413,7 @@ def view_students(request):
 # STUDENT DASHBOARD
 # =========================
 from django.db.models import Count
-from core.models import Attendance, Assignment, Notice
+from core.models import Attendance, StudyMaterial, Notice
 
 
 def student_dashboard(request):
@@ -418,13 +444,15 @@ def student_dashboard(request):
         'subject'
     ).distinct().count()
 
-    assignment_count = Assignment.objects.count()
+    total_materials = StudyMaterial.objects.filter(
+    course=student.course
+).count()
 
     notice_count = Notice.objects.count()
 
-    latest_assignments = Assignment.objects.order_by(
-        '-upload_date'
-    )[:5]
+    latest_materials = StudyMaterial.objects.filter(
+    course=student.course
+    ).order_by("-upload_date")[:5]
 
     latest_notices = Notice.objects.order_by(
         '-created_at'
@@ -438,11 +466,11 @@ def student_dashboard(request):
 
         "total_subjects": total_subjects,
 
-        "assignment_count": assignment_count,
+        "total_materials": total_materials,
 
         "notice_count": notice_count,
 
-        "latest_assignments": latest_assignments,
+        "latest_materials": latest_materials,
 
         "latest_notices": latest_notices,
 
@@ -871,68 +899,40 @@ def student_subjects(request):
     
 
 # =========================
-# TEACHER ASSIGNMENT UPLOAD
+# TEACHER MATERIAL UPLOAD
 # =========================
-def teacher_upload_assignment(request):
-    teacher_id = request.session.get('teacher_id')
-    if not teacher_id:
-        return redirect('/')
 
-    teacher = Teacher.objects.get(id=teacher_id)
-
-    if request.method == 'POST':
-        title = request.POST.get('title')
-        file = request.FILES.get('file')
-
-        if title and file:
-            Assignment.objects.create(
-                teacher=teacher,
-                title=title,
-                subject=teacher.subject,
-                pdf=file
-            )
-
-        return redirect('/teacher/assignments/')
-
-    assignments = Assignment.objects.filter(teacher=teacher).order_by('-upload_date')
-
-    return render(request, 'teacher/upload_assignment.html', {
-        'assignments': assignments,
-        'teacher': teacher
-    })
 
 
 # =========================
-# STUDENT ASSIGNMENTS
+# STUDENT Material
 # =========================
-def student_assignments(request):
-    student_id = request.session.get('student_id')
+def student_study_materials(request):
+    
+    student_id = request.session.get("student_id")
+
     if not student_id:
-        return redirect('/')
+        return redirect("/")
 
     student = Student.objects.get(id=student_id)
-    assignments = Assignment.objects.all().order_by('-upload_date')
 
-    return render(request, 'student/assignments.html', {
-        'student': student,
-        'assignments': assignments
-    })
+    materials = StudyMaterial.objects.filter(
+        course=student.course
+    ).order_by("-upload_date")
+
+    return render(
+        request,
+        "student/study_materials.html",
+        {
+            "student": student,
+            "materials": materials,
+        },
+    )
 
 
 # =========================
-# DELETE ASSIGNMENT
+# DELETE material
 # =========================
-def delete_assignment(request, id):
-    teacher_id = request.session.get('teacher_id')
-    if not teacher_id:
-        return redirect('/')
-
-    assignment = Assignment.objects.get(id=id)
-
-    if assignment.teacher.id == teacher_id:
-        assignment.delete()
-
-    return redirect('/teacher/assignments/')
 
 
 # =========================
@@ -1060,3 +1060,9 @@ def teacher_settings(request):
 def teacher_logout(request):
     request.session.flush()
     return redirect("/")
+
+def home(request):
+    return render(request, "home/index.html")
+
+def erp_portal(request):
+    return render(request, "home/erp_portal.html")

@@ -24,6 +24,38 @@ a{
    SIDEBAR
 =========================== */
 
+.mobile-menu{
+    display:none;
+    background:#0d47a1;
+    color:#fff;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.mobile-menu{
+display:block;
+position:fixed;
+top:15px;
+left:15px;
+z-index:9999;
+}
+
+.sidebar{
+left:-270px;
+transition:.4s;
+position:fixed;
+}
+
+.sidebar.active{
+left:0;
+}
+}
+
 .sidebar{
     width:270px;
     background:#0B2C6A;

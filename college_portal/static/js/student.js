@@ -37,3 +37,12 @@ now.toLocaleTimeString();
 
 },1000);
 
+const menu=document.getElementById("menu-btn");
+
+const sidebar=document.querySelector(".sidebar");
+
+if(menu){
+menu.onclick=function(){
+sidebar.classList.toggle("active");
+}
+}

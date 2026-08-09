@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q(0ejs*t5-+$*6tv#tw8-xym*h4rko#a*ne=sa7dv5-#uxxwez'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = [
-    #  "college-erp-rwzx.onrender.com",
+     "college-erp-rwzx.onrender.com",
 ]
 
 

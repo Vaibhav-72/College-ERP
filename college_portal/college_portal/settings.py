@@ -27,7 +27,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = [
-    "college-erp-rwzx.onrender.com",
+     "college-erp-rwzx.onrender.com",
 ]
 
 

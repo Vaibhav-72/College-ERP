@@ -481,27 +481,41 @@ def student_dashboard(request):
         "student/dashboard.html",
         context
     )
-# =========================
+    # =========================
 # STUDENT ATTENDANCE
 # =========================
+
 def student_attendance(request):
+
     student_id = request.session.get('student_id')
+
     if not student_id:
         return redirect('/')
 
     student = Student.objects.get(id=student_id)
+
     attendance = Attendance.objects.filter(student=student)
 
+    # Total Classes
     total = attendance.count()
+
+    # Present Classes
     present = attendance.filter(status=True).count()
+
+    # Absent Classes
+    absent = attendance.filter(status=False).count()
+
+    # Attendance Percentage
     percent = int((present / total) * 100) if total else 0
 
     return render(request, 'student/attendance.html', {
         'student': student,
         'attendance': attendance,
-        'percent': percent
+        'total': total,
+        'present': present,
+        'absent': absent,
+        'percent': percent,
     })
-
 #=========================
 # STUDENT MARKS
 # =========================

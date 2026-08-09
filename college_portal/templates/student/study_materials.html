@@ -23,7 +23,7 @@
 <div class="dashboard">
 
 {% include "student/sidebar.html" %}
-
+<div id="overlay"></div>
 <main class="main-content">
 
 <!-- TOPBAR -->
@@ -206,6 +206,8 @@ row.style.display=row.innerText.toLowerCase().includes(filter)
 });
 
 </script>
+
+<script src="{% static 'js/student.js' %}"></script>
 
 </body>
 </html>

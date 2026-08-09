@@ -26,6 +26,8 @@
     <!-- Sidebar -->
 
    {% include "student/sidebar.html" %}
+
+   <div id="overlay"></div>
     <!-- Main -->
 
     <main class="main-content">
@@ -334,58 +336,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-
-const ctx = document.getElementById('attendanceChart');
-
-if(ctx){
-
-new Chart(ctx,{
-
-type:'line',
-
-data:{
-
-labels:['Mon','Tue','Wed','Thu','Fri','Sat'],
-
-datasets:[{
-
-label:'Attendance',
-
-data:[90,85,80,95,88,92],
-
-borderWidth:3,
-
-fill:true,
-
-tension:.4
-
-}]
-
-},
-
-options:{
-
-responsive:true,
-
-plugins:{
-
-legend:{
-
-display:false
-
-}
-
-}
-
-}
-
-});
-
-}
-
-</script>
+<script src="{% static 'js/student.js' %}"></script>
 
 </body>
 
